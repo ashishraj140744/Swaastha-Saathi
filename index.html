@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swaastha Saathi — Rural Health Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<!-- JWT AUTHENTICATION SCREEN — Nabha-inspired -->
+<div id="authScreen" class="auth-screen">
+  <section class="auth-visual-panel">
+    <div class="auth-pattern"></div>
+    <div class="auth-slides" aria-hidden="true">
+      <div class="auth-slide active" style="background-image:url('https://images.unsplash.com/photo-1659353887211-1a3aa8426aa5?auto=format&fit=crop&w=1400&q=80')"></div>
+      <div class="auth-slide" style="background-image:url('https://images.unsplash.com/photo-1691934286085-c88039d93dae?auto=format&fit=crop&w=1400&q=80')"></div>
+      <div class="auth-slide" style="background-image:url('https://images.unsplash.com/photo-1582146804102-b4a01b0a51ae?auto=format&fit=crop&w=1400&q=80')"></div>
+    </div>
+    <div class="auth-visual-content">
+      <div class="auth-brand-lockup auth-reveal auth-delay-1">
+        <div class="auth-logo">♥</div>
+        <div>
+          <div class="auth-brand-name">Swaastha<span>Saathi</span></div>
+          <div class="auth-brand-tag">Rural Health Platform</div>
+        </div>
+      </div>
+      <div class="auth-copy auth-reveal auth-delay-2">
+        <h1>Healthcare is a <span>right</span>, not a privilege.</h1>
+        <p>Accessible healthcare support for patients, doctors and community health workers.</p>
+      </div>
+      <div class="auth-features auth-reveal auth-delay-3">
+        <div class="auth-feature"><span>◉</span><div><strong>Multilingual Support</strong><small>English & Hindi healthcare access</small></div></div>
+        <div class="auth-feature"><span>✓</span><div><strong>Secure & Private</strong><small>Your account is protected with JWT authentication</small></div></div>
+        <div class="auth-feature"><span>✦</span><div><strong>Smart Health Assistance</strong><small>Symptom guidance and nearby care resources</small></div></div>
+        <div class="auth-feature"><span>24</span><div><strong>Healthcare Assistance</strong><small>Find the right care when you need it</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="auth-form-panel">
+    <div class="auth-form-wrap">
+      <div class="auth-mobile-brand">
+        <div class="auth-logo">♥</div><div class="auth-brand-name">Swaastha<span>Saathi</span></div>
+      </div>
+      <div class="auth-mode-tabs auth-reveal">
+        <button type="button" id="loginModeTab" class="auth-mode-tab active">Sign In</button>
+        <button type="button" id="signupModeTab" class="auth-mode-tab">Create Account</button>
+      </div>
+
+      <div class="auth-sticky-controls">
+        <div class="auth-form-header auth-reveal">
+          <div class="auth-role-icon" id="authRoleIcon">♙</div>
+          <h2 id="authTitle">Welcome Back</h2>
+          <p id="authSubtitle">Sign in to access your healthcare dashboard</p>
+        </div>
+
+        <div id="authMessage" class="auth-message" hidden></div>
+
+        <div class="auth-role-group auth-reveal auth-delay-1">
+          <label>Select Your Role</label>
+          <div class="auth-role-options">
+            <button type="button" class="auth-role-btn active" data-role="patient"><span>♙</span><strong>Patient</strong><small>For patients</small></button>
+            <button type="button" class="auth-role-btn" data-role="doctor"><span>⚕</span><strong>Doctor</strong><small>For doctors</small></button>
+          </div>
+        </div>
+      </div>
+
+      <form id="authForm" class="auth-form auth-reveal auth-delay-2">
+        <div id="signupFields" class="auth-signup-fields" hidden>
+          <label>Full Name<input id="authName" type="text" placeholder="Enter your full name"></label>
+          <label>Phone Number<input id="authPhone" type="tel" placeholder="Enter your phone number"></label>
+          <label>Age<input id="authAge" type="number" min="1" max="120" placeholder="Age (optional)"></label>
+          <div id="doctorFields" hidden class="auth-extra-grid">
+            <label>Specialization<input id="authSpecialization" type="text" placeholder="e.g. General Physician"></label>
+            <label>Hospital / Clinic<input id="authHospital" type="text" placeholder="Hospital or clinic name"></label>
+            <label>Medical License<input id="authLicense" type="text" placeholder="License number"></label>
+          </div>
+        </div>
+        <label>Email Address<input id="authEmail" type="email" placeholder="you@example.com" autocomplete="email" required></label>
+        <label>Password<div class="auth-password-wrap"><input id="authPassword" type="password" placeholder="Enter your password" autocomplete="current-password" minlength="6" required><button type="button" id="togglePassword">Show</button></div></label>
+        <div class="auth-options">
+          <label class="auth-check"><input id="rememberMe" type="checkbox"><span>Remember me</span></label>
+          <button type="button" class="auth-link" id="forgotPassword" title="JWT demo: password reset is not configured">Forgot password?</button>
+        </div>
+        <button id="authSubmit" class="auth-submit" type="submit">Sign In <span>→</span></button>
+      </form>
+
+      <div class="auth-switch auth-reveal auth-delay-3"><span id="authSwitchText">Don't have an account?</span><button type="button" id="authToggle">Create Account</button></div>
+      <div class="auth-security"><span>🔒</span> JWT-secured session • Token expires after 24 hours</div>
+    </div>
+  </section>
+</div>
+
+<div id="appShell" class="app-shell" hidden>
+
+
+  <!-- Sidebar / menu -->
+  <nav class="sidebar">
+    <div class="brand">
+      <div class="brand-mark" aria-label="Swaastha Saathi logo"><span>♥</span></div>
+      <div class="brand-text">
+        <span class="brand-name">Swaastha Saathi</span>
+        <span class="brand-sub">Rural Health Platform</span>
+      </div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-group-label">Overview</div>
+      <button class="nav-item active" data-view="dashboard">
+        <span class="nav-icon">📊</span> Dashboard
+      </button>
+
+      <div class="nav-group-label">For Patients</div>
+      <button class="nav-item" data-view="chat">
+        <span class="nav-icon">💬</span> Symptom Chat
+      </button>
+      <button class="nav-item" data-view="doctors">
+        <span class="nav-icon">🩺</span> Find a Doctor
+      </button>
+      <button class="nav-item" data-view="facilities">
+        <span class="nav-icon">🏥</span> Facilities & NGOs
+      </button>
+
+      <div class="nav-group-label">For ASHA Workers</div>
+      <button class="nav-item" data-view="asha">
+        <span class="nav-icon">📋</span> Household Dashboard
+      </button>
+      <button class="nav-item" data-view="education">
+        <span class="nav-icon">📚</span> Health Education
+      </button>
+
+      <div class="nav-group-label">Health Tools</div>
+      <button class="nav-item" data-view="health-tools">
+        <span class="nav-icon">🧩</span> Health Tools
+      </button>
+      <button class="nav-item" data-view="requests">
+        <span class="nav-icon">🔔</span> Requests
+        <span class="nav-count" id="requestCount">0</span>
+      </button>
+
+      <div class="nav-group-label">More</div>
+      <button class="nav-item" data-view="order-medicine">
+        <span class="nav-icon">💊</span> Order Medicines
+      </button>
+      <button class="nav-item nav-soon" data-view="soon-lab">
+        <span class="nav-icon">🧪</span> Lab Tests
+      </button>
+      <button class="nav-item nav-soon" data-view="soon-records">
+        <span class="nav-icon">📁</span> Health Records
+      </button>
+      <button class="nav-item" data-view="insurance">
+        <span class="nav-icon">🛡️</span> Insurance
+      </button>
+      <button class="nav-item" data-view="about">
+        <span class="nav-icon">ℹ️</span> How this works
+      </button>
+      <button class="nav-item" data-view="feedback">
+        <span class="nav-icon">💬</span> Feedback & Suggestions
+      </button>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="auth-user-card">
+        <div class="auth-user-avatar" id="sidebarUserAvatar">♙</div>
+        <div class="auth-user-info"><strong id="sidebarUserName">User</strong><span id="sidebarUserRole">Patient</span></div>
+        <button type="button" id="logoutBtn" class="logout-btn" title="Log out">↪</button>
+      </div>
+      <div>
+        <span class="control-label">Language</span>
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="hinglish">Hinglish</button>
+          <button class="lang-btn" data-lang="hi">हिंदी</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main class="main-content">
+    <button type="button" id="globalLogoutBtn" class="global-logout-btn" title="Log out">↪ <span>Log out</span></button>
+
+    <!-- DASHBOARD VIEW -->
+    <section id="view-dashboard" class="view active">
+      <div id="doctorDashboard" class="doctor-dashboard" hidden></div>
+      <div id="patientDashboard">
+      <header class="view-header">
+        <div>
+          <h1 id="dashboardGreeting">Welcome back 🙏</h1>
+          <p class="view-subtitle">Your healthcare activity, upcoming care and useful tools — all in one place.</p>
+        </div>
+        <span class="live-badge">● Live local data</span>
+      </header>
+
+      <div class="stat-grid" id="statGrid"></div>
+
+      <div class="feature-launch-grid" id="featureLaunchGrid">
+        <button class="feature-launch-card blood" data-feature-view="blood-donation">
+          <span class="feature-icon">🩸</span>
+          <span><strong>Blood Donation</strong><small>Find donors, requests & blood banks</small></span>
+          <span class="feature-arrow">→</span>
+        </button>
+        <button class="feature-launch-card pregnancy" data-feature-view="pregnancy">
+          <span class="feature-icon">🤰</span>
+          <span><strong>Pregnancy & Period</strong><small>Cycle tracking and pregnancy milestones</small></span>
+          <span class="feature-arrow">→</span>
+        </button>
+        <button class="feature-launch-card skin" data-feature-view="skin-prediction">
+          <span class="feature-icon">🧴</span>
+          <span><strong>Skin Health</strong><small>Upload a photo for an AI screening demo</small></span>
+          <span class="feature-arrow">→</span>
+        </button>
+        <button class="feature-launch-card village" data-feature-view="village-health">
+          <span class="feature-icon">🏡</span>
+          <span><strong>Village Health Hub</strong><small>Local facilities, services & health resources</small></span>
+          <span class="feature-arrow">→</span>
+        </button>
+        <button class="feature-launch-card insurance" data-feature-view="insurance">
+          <span class="feature-icon">🛡️</span>
+          <span><strong>Health Insurance</strong><small>Affordable plans with 60+ senior discount</small></span>
+          <span class="feature-arrow">→</span>
+        </button>
+        <button class="feature-launch-card nurse" data-feature-view="nurse-support">
+          <span class="feature-icon">👩‍⚕️</span>
+          <span><strong>Nurse Support</strong><small>Get help when symptoms are high-risk or urgent</small></span>
+          <span class="feature-arrow">→</span>
+        </button>
+        <button class="feature-launch-card feedback" data-feature-view="feedback">
+          <span class="feature-icon">💬</span>
+          <span><strong>Feedback & Suggestions</strong><small>Tell us what to improve and what to add</small></span>
+          <span class="feature-arrow">→</span>
+        </button>
+      </div>
+
+      <div class="panel dashboard-care-pathways">
+        <div class="panel-heading-row"><h3>🩺 Care pathways</h3><span class="small-note">Choose the support you need</span></div>
+        <div class="care-pathway-grid">
+          <button class="care-pathway-card" data-view="doctors"><span>🖥️</span><strong>Virtual consultation</strong><small>Talk to a doctor by video, audio or chat.</small></button>
+          <button class="care-pathway-card" data-view="doctors"><span>🏥</span><strong>Meet a doctor</strong><small>Book an in-person clinic or health-centre visit.</small></button>
+          <button class="care-pathway-card nurse-pathway" data-view="nurse-support"><span>👩‍⚕️</span><strong>Nurse support</strong><small>For high-risk cases and help with escalation.</small></button>
+          <button class="care-pathway-card" data-view="blood-donation"><span>🩸</span><strong>Blood donation</strong><small>Request blood or register as a donor.</small></button>
+          <button class="care-pathway-card" data-view="pregnancy"><span>🤰</span><strong>Pregnancy & period</strong><small>Track cycles and pregnancy milestones.</small></button>
+          <button class="care-pathway-card" data-view="village-health"><span>🏡</span><strong>Village health</strong><small>Community support, medicines and health camps.</small></button>
+        </div>
+      </div>
+
+      <div class="dashboard-grid dashboard-main-grid">
+        <div class="panel">
+          <div class="panel-heading-row"><h3>Care overview</h3><button class="text-btn" data-view="requests">View requests →</button></div>
+          <div class="care-overview" id="careOverview"></div>
+          <div class="quick-actions">
+            <button class="quick-action-btn" data-view="chat"><span class="quick-action-emoji">💬</span> Start a symptom check</button>
+            <button class="quick-action-btn" data-view="doctors"><span class="quick-action-emoji">🩺</span> Find a doctor</button>
+            <button class="quick-action-btn" data-view="facilities"><span class="quick-action-emoji">🏥</span> Find nearby care</button>
+          </div>
+        </div>
+
+        <div class="panel nurse-support-dashboard-card">
+          <div class="panel-heading-row"><h3>👩‍⚕️ Nurse Support</h3><span class="status-pill" id="nurseSupportStatus">Available</span></div>
+          <p class="small-note">For high-risk or severe symptoms, request a nurse for initial support and escalation. Nurses do not replace emergency services.</p>
+          <div class="nurse-support-actions">
+            <button class="btn-primary" data-feature-view="nurse-support">Request nurse support</button>
+            <button class="btn-secondary" data-view="chat">Check symptoms</button>
+          </div>
+          <div id="nurseSupportSummary" class="panel-soft" style="margin-top:12px;">No active nurse request.</div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-heading-row"><h3>Recent activity</h3><button class="text-btn" id="clearActivityBtn">Clear</button></div>
+          <div class="activity-feed" id="activityFeed"></div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- CHAT VIEW -->
+    <section id="view-chat" class="view">
+      <header class="view-header">
+        <div>
+          <h1 id="chat-title">Describe how you're feeling</h1>
+          <p id="chat-subtitle" class="view-subtitle">Describe your symptoms and get guidance on whether you should see a doctor.</p>
+        </div>
+      </header>
+
+      <div class="health-tip-banner" id="healthTipBanner">
+        <span class="health-tip-icon">💡</span>
+        <span class="health-tip-text" id="healthTipText"></span>
+        <div class="health-tip-dots" id="healthTipDots"></div>
+      </div>
+
+      <div class="chat-window" id="chatWindow">
+        <div class="msg msg-bot">
+          <div class="msg-bubble">
+            <span id="greeting-text">Namaste 🙏 Tell me your symptoms in your own words — English or Hindi, either is fine.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="quick-chips" id="quickChips">
+        <button type="button" class="chip" data-symptom="I have had fever for 3 days">🤒 Fever</button>
+        <button type="button" class="chip" data-symptom="I have a bad cough and cold">🤧 Cough & cold</button>
+        <button type="button" class="chip" data-symptom="I have a headache and body ache">🤕 Headache</button>
+        <button type="button" class="chip" data-symptom="I have stomach pain and loose motions">🤢 Stomach pain</button>
+        <button type="button" class="chip" data-symptom="I have a skin rash and itching">🩹 Skin rash</button>
+        <button type="button" class="chip" data-symptom="I have burning while urinating">🚽 Urine burning</button>
+        <button type="button" class="chip" data-symptom="I have eye pain and blurred vision">👁️ Eye problem</button>
+        <button type="button" class="chip" data-symptom="I have ear pain and blocked hearing">👂 Ear problem</button>
+        <button type="button" class="chip" data-symptom="I have tooth pain">🦷 Tooth pain</button>
+        <button type="button" class="chip" data-symptom="I have knee and joint pain">🦴 Joint pain</button>
+        <button type="button" class="chip" data-symptom="I feel dizzy and weak">💫 Dizziness</button>
+        <button type="button" class="chip" data-symptom="I have period pain and heavy bleeding">🌸 Period health</button>
+        <button type="button" class="chip" data-symptom="I have an allergy and hives">🤧 Allergy</button>
+        <button type="button" class="chip" data-symptom="I have palpitations and high blood pressure">❤️ BP / Palpitations</button>
+      </div>
+
+      <form class="chat-input-row" id="chatForm">
+        <input type="text" id="chatInput" placeholder="e.g. mujhe 3 din se bukhar hai..." autocomplete="off" />
+        <button type="submit" id="sendBtn">Send</button>
+      </form>
+    </section>
+
+    <!-- DOCTORS VIEW -->
+    <section id="view-doctors" class="view">
+      <header class="view-header">
+        <div>
+          <h1>Find a Doctor</h1>
+          <p class="view-subtitle">Search by speciality, date, or location — book a slot instantly.</p>
+        </div>
+      </header>
+
+      <div class="doctor-filters">
+        <select id="filterSpeciality">
+          <option value="">All Specialities</option>
+        </select>
+        <select id="filterLocation">
+          <option value="">All Locations</option>
+        </select>
+        <input type="date" id="filterDate" />
+        <button id="clearFiltersBtn" class="btn-secondary">Clear</button>
+      </div>
+
+      <div class="doctor-list" id="doctorList">
+        <!-- populated by JS -->
+      </div>
+    </section>
+
+    <!-- HEALTH TOOLS VIEW -->
+    <section id="view-health-tools" class="view">
+      <header class="view-header"><div><h1>Health Tools</h1><p class="view-subtitle">Quick access to the services inspired by the Nabha platform modules.</p></div></header>
+      <div class="feature-launch-grid feature-page-grid">
+        <button class="feature-launch-card blood" data-feature-view="blood-donation"><span class="feature-icon">🩸</span><span><strong>Blood Donation</strong><small>Donor matching, blood requests and blood bank locator.</small></span><span class="feature-arrow">→</span></button>
+        <button class="feature-launch-card pregnancy" data-feature-view="pregnancy"><span class="feature-icon">🤰</span><span><strong>Pregnancy & Period Tracker</strong><small>Track cycles, fertile window and pregnancy milestones.</small></span><span class="feature-arrow">→</span></button>
+        <button class="feature-launch-card skin" data-feature-view="skin-prediction"><span class="feature-icon">🧴</span><span><strong>Skin Disease Screening</strong><small>Image upload and screening workflow. Not a diagnosis.</small></span><span class="feature-arrow">→</span></button>
+        <button class="feature-launch-card village" data-feature-view="village-health"><span class="feature-icon">🏡</span><span><strong>Village Health Hub</strong><small>Local health resources and community services.</small></span><span class="feature-arrow">→</span></button>
+        <button class="feature-launch-card insurance" data-feature-view="insurance"><span class="feature-icon">🛡️</span><span><strong>Health Insurance</strong><small>Affordable plans and 60+ senior discount.</small></span><span class="feature-arrow">→</span></button>
+        <button class="feature-launch-card feedback" data-feature-view="feedback"><span class="feature-icon">💬</span><span><strong>Feedback & Suggestions</strong><small>Help us improve Swaastha-Saathi.</small></span><span class="feature-arrow">→</span></button>
+      </div>
+    </section>
+
+    <!-- NURSE SUPPORT VIEW -->
+    <section id="view-nurse-support" class="view">
+      <header class="view-header"><div><h1>👩‍⚕️ Nurse Support</h1><p class="view-subtitle">Request initial support for high-risk symptoms and help with escalation. For life-threatening emergencies, call 108 immediately.</p></div></header>
+      <div class="tool-grid two-col">
+        <div class="panel tool-card">
+          <h3>Request a nurse</h3>
+          <p class="small-note">A nurse can help collect basic information, guide you toward appropriate care and escalate to a doctor or facility. This is not emergency replacement care.</p>
+          <label>Reason<select id="nurseReason"><option>Severe or worsening symptoms</option><option>High-risk triage result</option><option>Need help reaching a doctor</option><option>Village/community health support</option></select></label>
+          <label>Preferred contact<input id="nursePhone" type="tel" placeholder="10-digit mobile number"></label>
+          <button class="btn-primary" id="requestNurseBtn">Request Nurse Support</button>
+          <div id="nurseRequestResult" class="result-box"></div>
+        </div>
+        <div class="panel tool-card">
+          <h3>🚨 Severe-case guidance</h3>
+          <div class="cycle-insight-list">
+            <div class="cycle-insight-item"><div class="cycle-insight-item-title">🔴 Emergency</div><p>Severe breathing difficulty, severe chest pain, unconsciousness, major bleeding or stroke-like symptoms need emergency care now.</p><small><strong>Action:</strong> Call 108 or go to the nearest emergency facility. Do not wait for a nurse callback.</small></div>
+            <div class="cycle-insight-item"><div class="cycle-insight-item-title">🟠 High priority</div><p>A nurse may help with initial assessment and escalation while you arrange a doctor consultation.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:16px;"><div class="panel-heading-row"><h3>My nurse requests</h3></div><div id="nurseRequestsList" class="requests-grid"></div></div>
+    </section>
+
+    <!-- REQUESTS VIEW -->
+    <section id="view-requests" class="view">
+      <header class="view-header"><div><h1>Requests & Appointments</h1><p class="view-subtitle">Your bookings and healthcare actions are stored locally so they remain visible after navigation.</p></div></header>
+      <div class="requests-grid" id="requestsGrid"></div>
+    </section>
+
+    <!-- BLOOD DONATION VIEW -->
+    <section id="view-blood-donation" class="view">
+      <header class="view-header"><div><h1>Blood Donation</h1><p class="view-subtitle">Find compatible donors, create a request, and locate a nearby blood bank.</p></div></header>
+      <div class="tool-hero blood-hero"><div class="tool-hero-icon">🩸</div><div><h2>Every drop can help</h2><p>Use this local demo to record a blood request and search compatible donor groups.</p></div></div>
+      <div class="tool-grid two-col">
+        <div class="panel tool-card"><h3>Request blood</h3><label>Blood group<select id="bloodGroup"><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select></label><label>Units needed<input id="bloodUnits" type="number" min="1" value="1"></label><label>Location<input id="bloodLocation" placeholder="Village / city"></label><button class="btn-primary" id="bloodRequestBtn">Create Request</button></div>
+        <div class="panel tool-card"><h3>Compatible donor groups</h3><div id="donorResults" class="donor-results"></div><p class="small-note">Demo data only. Confirm availability with a licensed blood bank.</p></div>
+        <div class="panel tool-card blood-donor-card"><h3>❤️ Donate Blood</h3><p class="small-note">Register yourself as a voluntary donor so a compatible patient or blood bank can contact you.</p><div class="donor-form-grid"><label>Your blood group<select id="donorBloodGroup"><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select></label><label>Location<input id="donorLocation" placeholder="Village / city"></label><label>Phone<input id="donorPhone" placeholder="10-digit phone"></label></div><label class="checkbox-row"><input id="donorConsent" type="checkbox"> I agree to be contacted for a blood donation request.</label><button class="btn-primary" id="bloodDonateBtn">Register as Donor</button><div id="donorRegistrationResult" class="result-box"></div></div>
+        <div class="panel tool-card"><h3>Donor eligibility reminder</h3><ul class="simple-list"><li>Donate only if you feel well and meet local blood-bank eligibility rules.</li><li>Carry valid identification to a licensed blood bank.</li><li>Do not donate if a clinician or blood bank has advised against it.</li></ul></div>
+      </div>
+    </section>
+
+    <!-- PREGNANCY VIEW -->
+    <section id="view-pregnancy" class="view">
+      <header class="view-header"><div><h1>Pregnancy & Period Tracker</h1><p class="view-subtitle">A private local tracker for cycle dates and pregnancy milestones.</p></div></header>
+      <div class="tool-grid two-col">
+        <div class="panel tool-card"><h3>Cycle health tracker</h3><label>Last period date<input id="periodStart" type="date"></label><label>Average cycle length<input id="cycleLength" type="number" min="15" max="90" value="28"></label><label>Typical period duration (days)<input id="periodDuration" type="number" min="1" max="30" value="5"></label><label>Flow<select id="periodFlow"><option value="normal">Normal</option><option value="heavy">Heavy</option><option value="very-heavy">Very heavy</option></select></label><label>Period pain<select id="periodPain"><option value="none">None/mild</option><option value="moderate">Moderate</option><option value="severe">Severe / affects daily activities</option></select></label><label>Periods missed in the last 3 months<input id="missedPeriods" type="number" min="0" max="3" value="0"></label><button class="btn-primary" id="calculateCycleBtn">Analyze cycle</button><div id="cycleResult" class="result-box"></div></div>
+        <div class="panel tool-card"><h3>Pregnancy milestone calculator</h3><label>First day of last menstrual period<input id="pregnancyLmp" type="date"></label><button class="btn-primary" id="calculatePregnancyBtn">Calculate milestone</button><div id="pregnancyResult" class="result-box"></div><div id="pregnancyGuidance" class="pregnancy-guidance" hidden></div></div>
+      </div>
+      <p class="medical-disclaimer">For education and tracking only. Pregnancy dates are estimates and should be confirmed with a qualified clinician.</p>
+    </section>
+
+    <!-- SKIN VIEW -->
+    <section id="view-skin-prediction" class="view">
+      <header class="view-header"><div><h1>Skin Health Screening</h1><p class="view-subtitle">Upload a clear skin image for AI-powered visual guidance. The assistant can describe visible findings, suggest safe next steps, and tell you when to see a health professional.</p></div></header>
+      <div class="skin-screening panel"><div><div class="upload-zone" id="skinUploadZone"><input id="skinImageInput" type="file" accept="image/jpeg,image/png,image/webp,image/*"><div class="upload-icon">📷</div><h3>Upload a clear skin image</h3><p>Use a well-lit, close-up photo. JPG/PNG/WEBP, max 8 MB.</p><label class="btn-secondary" id="chooseSkinImageBtn" for="skinImageInput">Choose image</label><div class="skin-upload-actions"><span id="skinFileName" class="small-note">No image selected</span><button type="button" class="btn-primary" id="uploadSkinImageBtn" disabled>Analyze Image with Gemini</button></div></div><div class="panel-soft glow-guide" id="glowGuide"><div class="ai-result-head"><strong id="glowGuideTitle">🩺 Skin Image Health Check</strong><span class="status-pill">AI visual guidance</span></div><div id="glowGuideText"></div></div></div><div class="skin-preview-wrap" id="skinPreviewWrap" hidden><img id="skinPreview" alt="Selected skin image preview"><div class="skin-result" id="skinResult"></div></div></div>
+      <p class="medical-disclaimer">AI image analysis is educational and cannot confirm a diagnosis. It must not be used as a prescription. For severe, spreading, infected, painful or rapidly worsening skin problems, seek a doctor or dermatologist.</p>
+    </section>
+
+    <!-- VILLAGE HEALTH VIEW -->
+    <section id="view-village-health" class="view">
+      <header class="view-header"><div><h1>Village Health Hub</h1><p class="view-subtitle">A simple local hub for rural health resources, services and emergency support.</p></div></header>
+      <div class="village-actions panel"><div><h3>Village care at your fingertips</h3><p>Check essential medicine availability, upcoming health camps and request community support.</p></div><div class="village-action-row"><button class="btn-primary" id="villageRequestBtn">Request ASHA support</button><button class="btn-secondary" id="villageCampBtn">Register for a camp</button></div></div><div class="village-grid" id="villageGrid"></div><div class="village-data-grid"><div class="panel"><div class="panel-heading-row"><h3>Medicine availability</h3><span class="status-pill" id="medicineStatus">Live demo stock</span></div><div id="medicineList"></div></div><div class="panel"><div class="panel-heading-row"><h3>Upcoming health camps</h3></div><div id="campList"></div></div></div>
+    </section>
+
+    <!-- FACILITIES VIEW -->
+    <section id="view-facilities" class="view">
+      <header class="view-header">
+        <div>
+          <h1>Nearby Facilities & NGO Camps</h1>
+          <p class="view-subtitle">Health centres, hospitals, and NGO health camps near you.</p>
+        </div>
+      </header>
+      <div class="facility-toolbar facility-location-toolbar">
+        <div class="facility-search-wrap"><span>🔎</span><input type="text" id="facilitySearch" placeholder="Search by name or type..." /></div>
+        <button class="btn-primary" id="useMyLocationBtn" type="button">📍 Use my location</button>
+        <select id="facilityTypeFilter" aria-label="Filter facilities">
+          <option value="all">All nearby services</option>
+          <option value="hospital">Hospitals</option>
+          <option value="clinic">Clinics / PHCs</option>
+          <option value="pharmacy">Pharmacies</option>
+          <option value="ngo">NGO / Community</option>
+          <option value="blood">Blood banks</option>
+        </select>
+      </div>
+      <div class="location-status" id="facilityLocationStatus">📍 Use your location to see nearby services sorted by distance. Your location is used only in this browser session.</div>
+      <div class="facility-grid" id="facilityGrid"></div>
+    </section>
+
+    <!-- ASHA DASHBOARD VIEW -->
+    <section id="view-asha" class="view">
+      <header class="view-header">
+        <div>
+          <h1>Household Dashboard</h1>
+          <p class="view-subtitle">A practical village-health dashboard for prioritising families, follow-ups and community visits.</p>
+        </div>
+      </header>
+      <div class="household-summary" id="householdSummary"></div>
+      <div class="household-toolbar panel">
+        <input id="householdSearch" type="search" placeholder="Search household or village..." autocomplete="off">
+        <select id="householdPriorityFilter"><option value="all">All priorities</option><option value="high">High priority</option><option value="medium">Medium priority</option><option value="low">Low priority</option></select>
+      </div>
+      <div class="household-list" id="householdList"></div>
+    </section>
+
+    <!-- EDUCATION VIEW -->
+    <section id="view-education" class="view">
+      <header class="view-header">
+        <div>
+          <h1>Health Education Topics</h1>
+          <p class="view-subtitle">Visual guidance to share with families during household visits.</p>
+        </div>
+      </header>
+      <div class="education-grid" id="educationGrid"></div>
+      <div class="education-modal" id="educationModal" hidden>
+        <div class="education-modal-backdrop" data-close-education></div>
+        <div class="education-modal-card" role="dialog" aria-modal="true">
+          <button class="modal-close" type="button" data-close-education>×</button>
+          <div id="educationModalIcon" class="education-modal-icon">📚</div>
+          <h2 id="educationModalTitle">Health topic</h2>
+          <p id="educationModalDescription"></p>
+          <div id="educationModalActions" class="education-actions"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDER MEDICINES VIEW -->
+    <section id="view-order-medicine" class="view">
+      <header class="view-header"><div><h1>Order Medicines</h1><p class="view-subtitle">Search essential medicines, add them to your cart, and get them delivered to your village or home.</p></div></header>
+      <div class="order-layout">
+        <div class="order-main">
+          <div class="order-toolbar panel">
+            <div class="order-search-wrap"><span>🔎</span><input id="medicineSearch" type="search" placeholder="Search medicines, categories..." autocomplete="off"></div>
+            <select id="medicineCategory"><option value="">All categories</option></select>
+          </div>
+          <div class="medicine-grid" id="medicineGrid"></div>
+        </div>
+        <aside class="cart-panel panel" id="medicineCartPanel">
+          <div class="panel-heading-row"><h3>🛒 Your Cart</h3><span class="status-pill" id="cartCount">0 items</span></div>
+          <div id="cartItems" class="cart-items"><div class="empty-cart">Your cart is empty.<br><small>Add a medicine to begin.</small></div></div>
+          <div class="cart-total"><span>Total</span><strong id="cartTotal">₹0</strong></div>
+          <div class="delivery-box"><strong>🚚 Home delivery</strong><small>Enter your address at checkout. Delivery is usually 2–4 days.</small></div>
+          <button class="btn-primary full-width" id="checkoutMedicineBtn" disabled>Proceed to Checkout</button>
+          <div id="medicineOrderMessage" class="order-message" hidden></div>
+        </aside>
+      </div>
+      <div class="order-history panel"><div class="panel-heading-row"><h3>Recent medicine orders</h3><button class="text-btn" id="refreshOrdersBtn">Refresh</button></div><div id="medicineOrdersList"></div></div>
+    </section>
+    <section id="view-soon-lab" class="view soon-view">
+      <div class="soon-card">
+        <div class="soon-icon">🧪</div>
+        <h2>Lab Tests — Coming in Phase 2</h2>
+        <p>Booking home sample collection and diagnostic tests, integrated with certified labs. Planned for the next build phase.</p>
+      </div>
+    </section>
+    <section id="view-soon-records" class="view soon-view">
+      <div class="soon-card">
+        <div class="soon-icon">📁</div>
+        <h2>Health Records — Coming in Phase 2</h2>
+        <p>Secure, patient-controlled digital health records. This needs proper privacy/security design (e.g. ABDM-aligned standards) before it should hold any real data.</p>
+      </div>
+    </section>
+    <section id="view-insurance" class="view">
+      <header class="view-header"><div><h1>Health Insurance</h1><p class="view-subtitle">Compare affordable demo plans, apply the senior-citizen discount, and request enrollment.</p></div><span class="live-badge">● Demo partner marketplace</span></header>
+      <div class="insurance-hero panel"><div class="insurance-hero-icon">🛡️</div><div><h2>Affordable protection for your family</h2><p>Choose a plan and see the premium instantly. Users aged <strong>60+</strong> receive a <strong>20% senior discount</strong> in this demo.</p></div></div>
+      <div class="insurance-grid" id="insurancePlans"></div>
+      <div class="insurance-info-grid">
+        <div class="panel insurance-business"><h3>How Swaastha Sathi earns</h3><p>For a real deployment, insurance would be offered through licensed insurer/TPA partners. Swaastha Sathi can earn a referral or distribution commission per successful policy, while the insurer handles underwriting and claims.</p><span class="status-pill">Demo — no real payment collected</span></div>
+        <div class="panel insurance-enrollment" id="insuranceEnrollment" hidden><h3>Enrollment summary</h3><div id="insuranceEnrollmentBody"></div></div>
+      </div>
+    </section>
+
+    <!-- FEEDBACK VIEW -->
+    <section id="view-feedback" class="view">
+      <header class="view-header">
+        <div><h1>💬 Feedback & Suggestions</h1><p class="view-subtitle">Your feedback helps us improve Swaastha-Saathi for patients, doctors and community health workers.</p></div>
+      </header>
+      <div class="feedback-layout">
+        <form class="panel feedback-form" id="feedbackForm">
+          <div class="panel-heading-row"><h3>Tell us about your experience</h3><span class="status-pill">Anonymous option</span></div>
+          <label>Overall experience
+            <div class="rating-row" id="feedbackRating" role="radiogroup" aria-label="Overall experience">
+              <button type="button" class="rating-star" data-rating="1" aria-label="1 star">★</button><button type="button" class="rating-star" data-rating="2" aria-label="2 stars">★</button><button type="button" class="rating-star" data-rating="3" aria-label="3 stars">★</button><button type="button" class="rating-star" data-rating="4" aria-label="4 stars">★</button><button type="button" class="rating-star" data-rating="5" aria-label="5 stars">★</button>
+            </div>
+          </label>
+          <label>What did you like?
+            <textarea id="feedbackLiked" rows="3" placeholder="Tell us what worked well..."></textarea>
+          </label>
+          <label>What should we improve?
+            <textarea id="feedbackImprove" rows="4" placeholder="For example: dashboard, chatbot, appointments, medicine ordering..."></textarea>
+          </label>
+          <label>Which area needs improvement most?
+            <select id="feedbackArea"><option>Dashboard</option><option>Symptom Chat / AI</option><option>Doctor Consultation</option><option>Village Health</option><option>Blood Donation</option><option>Pregnancy & Period</option><option>Skin Health</option><option>Medicine Store</option><option>Health Education</option><option>Nurse Support</option><option>Other</option></select>
+          </label>
+          <label>What feature should we add next?
+            <textarea id="feedbackFeature" rows="3" placeholder="Suggest a new feature..."></textarea>
+          </label>
+          <label>Report a problem (optional)
+            <textarea id="feedbackProblem" rows="3" placeholder="Describe anything that didn't work correctly..."></textarea>
+          </label>
+          <label class="auth-check feedback-check"><input type="checkbox" id="feedbackAnonymous"><span>Submit anonymously</span></label>
+          <div id="feedbackIdentityFields" class="feedback-identity">
+            <label>Name<input id="feedbackName" type="text" placeholder="Your name"></label>
+            <label>Email<input id="feedbackEmail" type="email" placeholder="you@example.com"></label>
+          </div>
+          <button class="btn-primary full-width" type="submit">Submit Feedback</button>
+          <div id="feedbackResult" class="result-box" role="status"></div>
+        </form>
+        <div class="panel feedback-side">
+          <div class="feedback-big-icon">💚</div>
+          <h2>Your voice matters</h2>
+          <p>Tell us what is confusing, what is useful, what is missing, and what you would change. Every suggestion can help make rural healthcare access simpler.</p>
+          <div class="feedback-points"><div>⭐ Rate your experience</div><div>💡 Suggest the next feature</div><div>🐛 Report something broken</div><div>🛠️ Tell us what to improve</div></div>
+          <div class="medical-disclaimer">Please do not include passwords, API keys, or highly sensitive medical information in feedback.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT VIEW -->
+    <section id="view-about" class="view">
+      <header class="view-header">
+        <div>
+          <h1>How Swaastha Saathi works</h1>
+        </div>
+      </header>
+      <div class="about-content">
+        <div class="about-card">
+          <h3>1. You describe symptoms</h3>
+          <p>In plain English or Hindi — no medical jargon needed.</p>
+        </div>
+        <div class="about-card">
+          <h3>2. AI-assisted triage</h3>
+          <p>We match your symptoms to a likely category and urgency using a transparent, rule-based system — every suggestion traces back to what you said.</p>
+        </div>
+        <div class="about-card">
+          <h3>3. We route you, not diagnose you</h3>
+          <p>You're connected to the nearest suitable facility, NGO camp, or doctor. A qualified doctor always makes the final call.</p>
+        </div>
+        <div class="about-card">
+          <h3>4. ASHA workers get smart prioritization</h3>
+          <p>Household visit order is ranked by an explainable scoring formula — risk factors, time since last visit, and pending health items.</p>
+        </div>
+        <div class="about-card emergency-note">
+          <h3>⚠ In a real emergency</h3>
+          <p>Call 108 (ambulance) or go to the nearest hospital immediately. Don't wait for any app.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Booking confirmation modal -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal">
+    <h3 id="modalDoctorName"></h3>
+    <p id="modalDoctorMeta" class="modal-meta"></p>
+    <label class="modal-label">Your name</label>
+    <input type="text" id="modalPatientName" placeholder="Enter your name" />
+    <label class="modal-label">Select date</label>
+    <select id="modalDateSelect"></select>
+    <label class="modal-label">Select time slot</label>
+    <select id="modalSlotSelect"></select>
+    <label class="modal-label">Consultation type</label>
+    <select id="modalConsultationType">
+      <option value="virtual">🖥️ Virtual consultation — video / audio / chat</option>
+      <option value="in-person">🏥 Meet doctor — clinic / health centre</option>
+    </select>
+    <div class="modal-actions">
+      <button id="modalCancelBtn" class="btn-secondary">Cancel</button>
+      <button id="modalConfirmBtn" class="btn-primary">Confirm Booking</button>
+    </div>
+    <div id="modalError" class="modal-error"></div>
+  </div>
+</div>
+
+<!-- Medicine checkout modal -->
+<div class="modal-overlay" id="medicineCheckoutModal">
+  <div class="modal checkout-modal">
+    <h3>🛍️ Confirm Medicine Order</h3>
+    <p class="modal-meta">Add the delivery details below. Your stock will be reserved only after the order is confirmed.</p>
+    <label class="modal-label">Phone number<input id="orderPhone" type="tel" placeholder="10-digit mobile number"></label>
+    <label class="modal-label">Delivery address<textarea id="orderAddress" rows="4" placeholder="House / village, landmark, district, PIN code"></textarea></label>
+    <div class="checkout-summary" id="checkoutSummary"></div>
+    <div class="modal-actions"><button id="orderCancelBtn" class="btn-secondary">Cancel</button><button id="orderConfirmBtn" class="btn-primary">Place Order</button></div>
+    <div id="orderCheckoutError" class="modal-error"></div>
+  </div>
+</div>
+
+<!-- Cycle health insights modal -->
+<div class="modal-overlay" id="cycleInsightModal">
+  <div class="modal cycle-insight-modal">
+    <div class="cycle-insight-icon">🌸</div>
+    <h3 id="cycleInsightTitle">Cycle health insight</h3>
+    <p class="modal-meta" id="cycleInsightIntro"></p>
+    <div id="cycleInsightList" class="cycle-insight-list"></div>
+    <div class="cycle-insight-note"><strong>Important:</strong> These are pattern-based flags, not diagnoses. A clinician may need an examination, pregnancy test, blood tests or ultrasound to determine the cause.</div>
+    <div class="modal-actions"><button id="cycleInsightClose" class="btn-primary">Got it</button></div>
+  </div>
+</div>
+
+<!-- SOS modal -->
+<div class="modal-overlay" id="sosModal">
+  <div class="modal">
+    <h3>⚠ Medical Emergency?</h3>
+    <p class="modal-meta">If this is life-threatening, don't wait for triage or an appointment — call the ambulance now.</p>
+    <a class="sos-modal-link" href="tel:108">📞 Call 108 (Ambulance)</a>
+    <div class="modal-actions">
+      <button id="sosCancelBtn" class="btn-secondary">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toasts -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- SOS floating button -->
+<button class="sos-btn" id="sosBtn" aria-label="Emergency SOS">
+  <span class="sos-icon">⚠</span>
+  SOS
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>

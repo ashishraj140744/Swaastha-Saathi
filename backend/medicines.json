@@ -1,0 +1,204 @@
+[
+  {
+    "id": "med-001",
+    "name": "Paracetamol 500mg",
+    "category": "Fever & pain",
+    "price": 35,
+    "stock": 117,
+    "unit": "10 tablets",
+    "icon": "💊",
+    "delivery_days": 2
+  },
+  {
+    "id": "med-002",
+    "name": "ORS Sachets",
+    "category": "Hydration",
+    "price": 45,
+    "stock": 86,
+    "unit": "5 sachets",
+    "icon": "🥤",
+    "delivery_days": 2
+  },
+  {
+    "id": "med-003",
+    "name": "Cetirizine 10mg",
+    "category": "Allergy",
+    "price": 28,
+    "stock": 74,
+    "unit": "10 tablets",
+    "icon": "💊",
+    "delivery_days": 3
+  },
+  {
+    "id": "med-004",
+    "name": "Antacid Tablets",
+    "category": "Digestive care",
+    "price": 32,
+    "stock": 68,
+    "unit": "10 tablets",
+    "icon": "🧪",
+    "delivery_days": 3
+  },
+  {
+    "id": "med-005",
+    "name": "Zinc Tablets",
+    "category": "Nutrition",
+    "price": 52,
+    "stock": 54,
+    "unit": "20 tablets",
+    "icon": "💊",
+    "delivery_days": 3
+  },
+  {
+    "id": "med-006",
+    "name": "Iron + Folic Acid",
+    "category": "Maternal nutrition",
+    "price": 65,
+    "stock": 48,
+    "unit": "30 tablets",
+    "icon": "🩷",
+    "delivery_days": 3
+  },
+  {
+    "id": "med-007",
+    "name": "Vitamin D3 60K",
+    "category": "Nutrition",
+    "price": 75,
+    "stock": 42,
+    "unit": "4 capsules",
+    "icon": "☀️",
+    "delivery_days": 3
+  },
+  {
+    "id": "med-008",
+    "name": "ORS + Zinc Pack",
+    "category": "Child & hydration",
+    "price": 79,
+    "stock": 36,
+    "unit": "ORS + zinc pack",
+    "icon": "🧃",
+    "delivery_days": 2
+  },
+  {
+    "id": "med-009",
+    "name": "Calamine Lotion",
+    "category": "Skin care",
+    "price": 89,
+    "stock": 31,
+    "unit": "100 ml",
+    "icon": "🧴",
+    "delivery_days": 3
+  },
+  {
+    "id": "med-010",
+    "name": "Clotrimazole Cream",
+    "category": "Skin care",
+    "price": 96,
+    "stock": 27,
+    "unit": "20 g",
+    "icon": "🧴",
+    "delivery_days": 3
+  },
+  {
+    "id": "med-011",
+    "name": "Saline Nasal Spray",
+    "category": "Cold & respiratory",
+    "price": 110,
+    "stock": 25,
+    "unit": "20 ml",
+    "icon": "💧",
+    "delivery_days": 3
+  },
+  {
+    "id": "med-012",
+    "name": "Digital Thermometer",
+    "category": "Health device",
+    "price": 149,
+    "stock": 22,
+    "unit": "1 device",
+    "icon": "🌡️",
+    "delivery_days": 4
+  },
+  {
+    "id": "med-013",
+    "name": "Adhesive Bandages",
+    "category": "First aid",
+    "price": 40,
+    "stock": 64,
+    "unit": "20 strips",
+    "icon": "🩹",
+    "delivery_days": 2
+  },
+  {
+    "id": "med-014",
+    "name": "Antiseptic Liquid",
+    "category": "First aid",
+    "price": 85,
+    "stock": 39,
+    "unit": "100 ml",
+    "icon": "🧴",
+    "delivery_days": 3
+  },
+  {
+    "id": "med-015",
+    "name": "Glucometer Strips",
+    "category": "Diabetes care",
+    "price": 299,
+    "stock": 18,
+    "unit": "25 strips",
+    "icon": "🩸",
+    "delivery_days": 4
+  },
+  {
+    "id": "med-016",
+    "name": "Hand Sanitizer",
+    "category": "Hygiene",
+    "price": 60,
+    "stock": 58,
+    "unit": "100 ml",
+    "icon": "🧼",
+    "delivery_days": 2
+  },
+  {
+    "id": "med-017",
+    "name": "Reusable Hot Water Bag",
+    "category": "Pain relief",
+    "price": 199,
+    "stock": 15,
+    "unit": "1 bag",
+    "icon": "♨️",
+    "delivery_days": 4
+  },
+  {
+    "id": "med-018",
+    "name": "Multivitamin Tablets",
+    "category": "Nutrition",
+    "price": 135,
+    "stock": 44,
+    "unit": "30 tablets",
+    "icon": "🟢",
+    "delivery_days": 3
+  },
+  {
+    "id": "med-019",
+    "name": "Amoxicillin 500mg",
+    "category": "Prescription medicine",
+    "price": 120,
+    "stock": 20,
+    "unit": "10 capsules",
+    "icon": "💊",
+    "delivery_days": 4,
+    "prescription": true
+  },
+  {
+    "id": "med-020",
+    "name": "Amlodipine 5mg",
+    "category": "Blood pressure",
+    "price": 55,
+    "stock": 34,
+    "unit": "10 tablets",
+    "icon": "❤️",
+    "delivery_days": 4,
+    "prescription": true
+  }
+]

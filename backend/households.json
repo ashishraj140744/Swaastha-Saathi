@@ -1,0 +1,34 @@
+[
+  {
+    "family_name": "Devi household",
+    "village": "Sidhbari",
+    "members": 5,
+    "last_visit_days_ago": 34,
+    "risk_factors": ["pregnancy", "elderly_member"],
+    "pending_items": ["ANC checkup due"]
+  },
+  {
+    "family_name": "Thakur household",
+    "village": "Naddi",
+    "members": 4,
+    "last_visit_days_ago": 21,
+    "risk_factors": ["infant_under_1"],
+    "pending_items": ["Vaccination due"]
+  },
+  {
+    "family_name": "Kumar household",
+    "village": "Sidhbari",
+    "members": 3,
+    "last_visit_days_ago": 9,
+    "risk_factors": [],
+    "pending_items": []
+  },
+  {
+    "family_name": "Chauhan household",
+    "village": "Naddi",
+    "members": 6,
+    "last_visit_days_ago": 45,
+    "risk_factors": ["elderly_member", "chronic_illness"],
+    "pending_items": ["Blood pressure check due", "Medicine refill due"]
+  }
+]

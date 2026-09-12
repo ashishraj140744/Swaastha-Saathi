@@ -1,0 +1,434 @@
+{
+  "emergency_keywords": [
+    "breath",
+    "breathing",
+    "can't breathe",
+    "cannot breathe",
+    "saans",
+    "saans nahi",
+    "chest pain",
+    "seene mein dard",
+    "seene",
+    "unconscious",
+    "behosh",
+    "bleeding",
+    "khoon",
+    "khoon beh raha",
+    "seizure",
+    "dorra",
+    "fits",
+    "accident",
+    "durghatna",
+    "severe injury",
+    "gehri chot",
+    "poisoning",
+    "zeher",
+    "suicide",
+    "khudkushi",
+    "not responding",
+    "collapsed",
+    "gir gaya behosh",
+    "severe breathlessness",
+    "difficulty breathing",
+    "face drooping",
+    "one side weakness",
+    "slurred speech",
+    "stroke symptoms",
+    "vomiting blood",
+    "black stool",
+    "major burn",
+    "electric shock"
+  ],
+  "categories": [
+    {
+      "id": "fever",
+      "name": "Fever",
+      "keywords": [
+        "fever",
+        "bukhar",
+        "temperature",
+        "kaanp",
+        "thand lagna",
+        "garmi lag rahi"
+      ],
+      "possible_conditions": [
+        "Viral fever",
+        "Malaria",
+        "Typhoid",
+        "Dengue"
+      ],
+      "specialist": "General Physician",
+      "urgency": "medium",
+      "special_note": "If fever crosses 3 days, or comes with rash or severe headache, seek care sooner."
+    },
+    {
+      "id": "respiratory",
+      "name": "Respiratory",
+      "keywords": [
+        "cough",
+        "khansi",
+        "cold",
+        "zukam",
+        "sore throat",
+        "gala kharab",
+        "sneeze",
+        "chhink",
+        "nazla"
+      ],
+      "possible_conditions": [
+        "Common cold",
+        "Bronchitis",
+        "Allergic rhinitis"
+      ],
+      "specialist": "General Physician",
+      "urgency": "low",
+      "special_note": ""
+    },
+    {
+      "id": "digestive",
+      "name": "Digestive",
+      "keywords": [
+        "stomach",
+        "pet dard",
+        "pet",
+        "motion",
+        "dast",
+        "loose motion",
+        "vomit",
+        "ulti",
+        "nausea",
+        "jee michlana"
+      ],
+      "possible_conditions": [
+        "Gastroenteritis",
+        "Food poisoning",
+        "Indigestion"
+      ],
+      "specialist": "General Physician",
+      "urgency": "medium",
+      "special_note": "Keep sipping ORS to avoid dehydration."
+    },
+    {
+      "id": "skin",
+      "name": "Skin",
+      "keywords": [
+        "skin",
+        "rash",
+        "khujli",
+        "itch",
+        "itching",
+        "daane",
+        "fungal",
+        "chakatte",
+        "acne",
+        "pimple",
+        "pimples",
+        "muhase",
+        "muhasa",
+        "muhase bahut",
+        "acne-like",
+        "blackheads",
+        "whiteheads"
+      ],
+      "possible_conditions": [
+        "Acne-like blemishes",
+        "Irritant or allergic rash",
+        "Other skin concerns"
+      ],
+      "specialist": "Dermatologist",
+      "urgency": "low",
+      "special_note": "For many pimples/acne, use gentle skin care and avoid squeezing. Seek a dermatologist if it is painful, widespread, scarring, rapidly worsening or persistent."
+    },
+    {
+      "id": "headache",
+      "name": "Headache / Body ache",
+      "keywords": [
+        "headache",
+        "sar dard",
+        "sir dard",
+        "body ache",
+        "badan dard",
+        "migraine"
+      ],
+      "possible_conditions": [
+        "Tension headache",
+        "Migraine",
+        "Viral infection"
+      ],
+      "specialist": "General Physician",
+      "urgency": "low",
+      "special_note": "If the headache is sudden, severe, or comes with vision changes or vomiting, seek care immediately."
+    },
+    {
+      "id": "maternal",
+      "name": "Maternal / Pregnancy care",
+      "keywords": [
+        "pregnant",
+        "pregnancy",
+        "garbhvati",
+        "prenatal",
+        "labor pain",
+        "labour pain",
+        "anc"
+      ],
+      "possible_conditions": [
+        "Routine antenatal checkup needed"
+      ],
+      "specialist": "Gynaecologist",
+      "urgency": "medium",
+      "special_note": "Regular ANC checkups are important even if you feel fine."
+    },
+    {
+      "id": "child",
+      "name": "Child / Infant health",
+      "keywords": [
+        "baby",
+        "infant",
+        "shishu",
+        "bachche ko",
+        "newborn",
+        "toddler"
+      ],
+      "possible_conditions": [
+        "Needs paediatric assessment"
+      ],
+      "specialist": "Paediatrician",
+      "urgency": "medium",
+      "special_note": ""
+    },
+    {
+      "id": "urinary",
+      "name": "Urinary / Kidney",
+      "keywords": [
+        "burning urine",
+        "burning while urinating",
+        "painful urination",
+        "urine pain",
+        "frequent urination",
+        "baar baar peshab",
+        "peshab mein jalan",
+        "peshab me jalan",
+        "peshab dard",
+        "blood in urine",
+        "khoon peshab",
+        "flank pain",
+        "kidney pain"
+      ],
+      "possible_conditions": [
+        "Urinary tract infection",
+        "Kidney stone",
+        "Other urinary conditions"
+      ],
+      "specialist": "General Physician / Urologist",
+      "urgency": "medium",
+      "special_note": "Fever, back/flank pain, vomiting, or blood in urine needs prompt medical assessment."
+    },
+    {
+      "id": "eye",
+      "name": "Eye / Vision",
+      "keywords": [
+        "eye pain",
+        "eyes pain",
+        "red eye",
+        "red eyes",
+        "itchy eyes",
+        "eye discharge",
+        "blurred vision",
+        "blur vision",
+        "vision problem",
+        "aankh dard",
+        "aankh lal",
+        "aankh mein dard",
+        "dhundhla dikhna"
+      ],
+      "possible_conditions": [
+        "Conjunctivitis",
+        "Eye irritation",
+        "Other eye conditions"
+      ],
+      "specialist": "Ophthalmologist",
+      "urgency": "medium",
+      "special_note": "Sudden vision loss, severe eye pain, or an eye injury needs urgent assessment."
+    },
+    {
+      "id": "ear",
+      "name": "Ear / Hearing",
+      "keywords": [
+        "ear pain",
+        "earache",
+        "ear discharge",
+        "hearing loss",
+        "blocked ear",
+        "kan dard",
+        "kaan dard",
+        "kaan se pani",
+        "kam sunai"
+      ],
+      "possible_conditions": [
+        "Ear infection",
+        "Wax blockage",
+        "Other ear conditions"
+      ],
+      "specialist": "ENT specialist",
+      "urgency": "low",
+      "special_note": "Severe pain, sudden hearing loss, or significant discharge should be assessed promptly."
+    },
+    {
+      "id": "dental",
+      "name": "Dental / Mouth",
+      "keywords": [
+        "toothache",
+        "tooth pain",
+        "gum pain",
+        "swollen gums",
+        "mouth ulcer",
+        "mouth sore",
+        "tooth swelling",
+        "daant dard",
+        "masoodon mein dard",
+        "munh ka chhala"
+      ],
+      "possible_conditions": [
+        "Dental decay",
+        "Gum inflammation",
+        "Mouth ulcer"
+      ],
+      "specialist": "Dentist",
+      "urgency": "medium",
+      "special_note": "Facial swelling, fever, or difficulty swallowing/breathing requires urgent care."
+    },
+    {
+      "id": "joint",
+      "name": "Joint / Muscle pain",
+      "keywords": [
+        "joint pain",
+        "knee pain",
+        "back pain",
+        "neck pain",
+        "shoulder pain",
+        "muscle pain",
+        "muscle ache",
+        "joint swelling",
+        "ghutne dard",
+        "kamar dard",
+        "gardan dard",
+        "kandhe ka dard",
+        "jodon ka dard"
+      ],
+      "possible_conditions": [
+        "Muscle strain",
+        "Joint inflammation",
+        "Other musculoskeletal conditions"
+      ],
+      "specialist": "General Physician / Orthopaedic specialist",
+      "urgency": "low",
+      "special_note": "Pain after a major injury, deformity, or inability to bear weight needs prompt assessment."
+    },
+    {
+      "id": "dizziness",
+      "name": "Dizziness / Weakness",
+      "keywords": [
+        "dizzy",
+        "dizziness",
+        "lightheaded",
+        "light headed",
+        "weakness",
+        "feeling weak",
+        "faint",
+        "chakkar",
+        "kamzori",
+        "behoshi jaisa"
+      ],
+      "possible_conditions": [
+        "Dehydration",
+        "Low blood pressure",
+        "Anemia or other causes"
+      ],
+      "specialist": "General Physician",
+      "urgency": "medium",
+      "special_note": "Fainting, chest pain, severe headache, weakness on one side, or trouble speaking needs urgent care."
+    },
+    {
+      "id": "menstrual",
+      "name": "Menstrual / Period health",
+      "keywords": [
+        "period pain",
+        "period cramps",
+        "heavy period",
+        "irregular period",
+        "missed period",
+        "period late",
+        "menstrual pain",
+        "mahavari",
+        "period dard",
+        "period late",
+        "zyada bleeding"
+      ],
+      "possible_conditions": [
+        "Menstrual cramps",
+        "Irregular menstruation",
+        "Other gynaecological conditions"
+      ],
+      "specialist": "Gynaecologist",
+      "urgency": "medium",
+      "special_note": "Very heavy bleeding, severe pain, fainting, or possible pregnancy with pain/bleeding needs prompt medical care."
+    },
+    {
+      "id": "allergy",
+      "name": "Allergy",
+      "keywords": [
+        "allergy",
+        "allergic",
+        "hives",
+        "urticaria",
+        "sneezing allergy",
+        "naak mein khujli",
+        "allergy rash",
+        "allergic reaction"
+      ],
+      "possible_conditions": [
+        "Allergic rhinitis",
+        "Hives",
+        "Contact allergy"
+      ],
+      "specialist": "General Physician / Dermatologist",
+      "urgency": "low",
+      "special_note": "Swelling of the lips/tongue, breathing difficulty, or widespread severe reaction is an emergency."
+    },
+    {
+      "id": "blood_pressure",
+      "name": "Blood pressure / Heart symptoms",
+      "keywords": [
+        "high bp",
+        "low bp",
+        "blood pressure",
+        "palpitations",
+        "heart beating fast",
+        "heart racing",
+        "dhadkan tez",
+        "bp badha",
+        "bp kam"
+      ],
+      "possible_conditions": [
+        "Blood pressure abnormality",
+        "Palpitations",
+        "Other cardiovascular causes"
+      ],
+      "specialist": "General Physician",
+      "urgency": "medium",
+      "special_note": "Chest pain, severe breathlessness, fainting, or a very severe sudden headache needs urgent assessment."
+    }
+  ],
+  "disclaimer": {
+    "en": "This tool suggests where to seek care based on keywords you used. It does not replace a doctor's diagnosis.",
+    "hi": "यह उपकरण आपके बताए शब्दों के आधार पर सुझाव देता है। यह डॉक्टर की जांच का विकल्प नहीं है।"
+  },
+  "no_match_message": {
+    "en": "I couldn't clearly match that to a category — could you describe your main symptom in a bit more detail (e.g. where it hurts, since when)?",
+    "hi": "मैं इसे ठीक से समझ नहीं पाया — कृपया अपनी मुख्य तकलीफ के बारे में थोड़ा और बताएं (जैसे कहां दर्द है, कब से है)?"
+  },
+  "emergency_message": {
+    "en": "This sounds urgent. Please call 108 or go to the nearest hospital right away.",
+    "hi": "यह गंभीर लग रहा है। कृपया तुरंत 108 पर कॉल करें या नज़दीकी अस्पताल जाएं।"
+  }
+}

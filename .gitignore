@@ -1,0 +1,37 @@
+# Python
+venv/
+**/venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+
+# Secrets
+.jwt_secret
+**/.jwt_secret
+.gemini_key
+**/.gemini_key
+.hf_token
+**/.hf_token
+.env
+.env.*
+
+# macOS / editors
+.DS_Store
+**/.DS_Store
+.vscode/
+.idea/
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Runtime / user-generated data
+backend/users.json
+backend/medicine_orders.json
+backend/feedback.json
+backend/village_requests.json
+
+# Local AI configuration
+backend/.env

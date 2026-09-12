@@ -1,0 +1,57 @@
+[
+  {
+    "id": "d1",
+    "name": "Dr. Anjali Sharma",
+    "speciality": "General Physician",
+    "location": "Dharamsala",
+    "experience_years": 9,
+    "rating": 4.6,
+    "consultation_fee": 300,
+    "available_dates": ["2026-08-24", "2026-08-25"],
+    "available_slots": ["10:00 AM", "11:30 AM", "4:00 PM"]
+  },
+  {
+    "id": "d2",
+    "name": "Dr. Rakesh Verma",
+    "speciality": "Paediatrician",
+    "location": "Kangra",
+    "experience_years": 14,
+    "rating": 4.8,
+    "consultation_fee": 400,
+    "available_dates": ["2026-08-24"],
+    "available_slots": ["9:00 AM", "1:00 PM"]
+  },
+  {
+    "id": "d3",
+    "name": "Dr. Meera Thakur",
+    "speciality": "General Physician",
+    "location": "McLeod Ganj",
+    "experience_years": 5,
+    "rating": 4.4,
+    "consultation_fee": 0,
+    "available_dates": ["2026-08-25"],
+    "available_slots": ["10:00 AM"]
+  },
+  {
+    "id": "d4",
+    "name": "Dr. Priya Nanda",
+    "speciality": "Gynaecologist",
+    "location": "Dharamsala",
+    "experience_years": 11,
+    "rating": 4.7,
+    "consultation_fee": 350,
+    "available_dates": ["2026-08-24", "2026-08-26"],
+    "available_slots": ["11:00 AM", "3:00 PM"]
+  },
+  {
+    "id": "d5",
+    "name": "Dr. Sameer Kapoor",
+    "speciality": "Dermatologist",
+    "location": "Kangra",
+    "experience_years": 7,
+    "rating": 4.3,
+    "consultation_fee": 250,
+    "available_dates": ["2026-08-25", "2026-08-26"],
+    "available_slots": ["10:30 AM", "2:00 PM"]
+  }
+]

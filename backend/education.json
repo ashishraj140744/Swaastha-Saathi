@@ -1,0 +1,8 @@
+[
+  { "icon": "💧", "title_en": "Safe drinking water", "title_hi": "सुरक्षित पेयजल" },
+  { "icon": "🧼", "title_en": "Handwashing", "title_hi": "हाथ धोना" },
+  { "icon": "🍼", "title_en": "Infant nutrition", "title_hi": "शिशु पोषण" },
+  { "icon": "💉", "title_en": "Vaccination schedule", "title_hi": "टीकाकरण तालिका" },
+  { "icon": "🦟", "title_en": "Mosquito-borne disease", "title_hi": "मच्छर जनित रोग" },
+  { "icon": "🤰", "title_en": "Maternal care", "title_hi": "मातृ देखभाल" }
+]

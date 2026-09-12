@@ -1,0 +1,35 @@
+[
+  {
+    "type": "Primary Health Centre",
+    "name": "Kangra Valley PHC",
+    "distance_km": 2.1,
+    "specialists_available": ["General Physician", "Nurse"],
+    "beds_total": 6,
+    "beds_available": 2
+  },
+  {
+    "type": "Community Health Centre",
+    "name": "Dharamsala CHC",
+    "distance_km": 4.8,
+    "specialists_available": ["General Physician", "Gynaecologist"],
+    "beds_total": 20,
+    "beds_available": 5
+  },
+  {
+    "type": "District Hospital",
+    "name": "Zonal Hospital, Kangra",
+    "distance_km": 12.3,
+    "specialists_available": ["General Physician", "Surgeon", "Paediatrician"],
+    "beds_total": 80,
+    "beds_available": 14
+  },
+  {
+    "type": "NGO Health Camp",
+    "name": "Sahyog Free Health Camp",
+    "distance_km": 1.5,
+    "specialists_available": ["General Physician"],
+    "beds_total": 0,
+    "beds_available": 0,
+    "note": "Free camp — runs Tue & Fri, 9am–1pm"
+  }
+]
