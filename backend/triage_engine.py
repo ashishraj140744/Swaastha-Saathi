@@ -128,3 +128,4 @@ def classify(message, language="en"):
         "disclaimer": KB["disclaimer"][lang],
         "matched_keywords": best_hits,  # explainability — not rendered by current UI, safe to include
     }
+
