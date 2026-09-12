@@ -3,13 +3,20 @@
 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5050
 [33mPress CTRL+C to quit[0m
-127.0.0.1 - - [12/Sep/2026 13:50:39] "GET /api/health HTTP/1.1" 200 -
-127.0.0.1 - - [12/Sep/2026 13:50:42] "OPTIONS /api/auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [12/Sep/2026 13:50:42] "POST /api/auth/login HTTP/1.1" 200 -
-127.0.0.1 - - [12/Sep/2026 13:51:08] "OPTIONS /api/skin/glowup HTTP/1.1" 200 -
-127.0.0.1 - - [12/Sep/2026 13:51:31] "POST /api/skin/glowup HTTP/1.1" 200 -
-127.0.0.1 - - [12/Sep/2026 13:51:52] "OPTIONS /api/skin/glowup HTTP/1.1" 200 -
-127.0.0.1 - - [12/Sep/2026 13:53:30] "[35m[1mPOST /api/skin/glowup HTTP/1.1[0m" 502 -
-127.0.0.1 - - [12/Sep/2026 13:53:51] "OPTIONS /api/skin/glowup HTTP/1.1" 200 -
-127.0.0.1 - - [12/Sep/2026 13:55:12] "OPTIONS /api/auth/logout HTTP/1.1" 200 -
-127.0.0.1 - - [12/Sep/2026 13:55:12] "POST /api/auth/logout HTTP/1.1" 200 -
+127.0.0.1 - - [12/Sep/2026 14:29:20] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Sep/2026 14:30:32] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [12/Sep/2026 14:30:32] "POST /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [12/Sep/2026 14:30:35] "OPTIONS /api/skin/config HTTP/1.1" 200 -
+127.0.0.1 - - [12/Sep/2026 14:30:35] "GET /api/skin/config HTTP/1.1" 200 -
+127.0.0.1 - - [12/Sep/2026 14:31:08] "OPTIONS /api/auth/me HTTP/1.1" 200 -
+127.0.0.1 - - [12/Sep/2026 14:31:08] "OPTIONS /api/skin/config HTTP/1.1" 200 -
+127.0.0.1 - - [12/Sep/2026 14:31:08] "GET /api/auth/me HTTP/1.1" 200 -
+127.0.0.1 - - [12/Sep/2026 14:31:08] "GET /api/skin/config HTTP/1.1" 200 -
+127.0.0.1 - - [12/Sep/2026 14:31:32] "OPTIONS /api/skin/config HTTP/1.1" 200 -
+127.0.0.1 - - [12/Sep/2026 14:31:32] "GET /api/skin/config HTTP/1.1" 200 -
+127.0.0.1 - - [12/Sep/2026 14:32:01] "OPTIONS /api/auth/me HTTP/1.1" 200 -
+127.0.0.1 - - [12/Sep/2026 14:32:01] "GET /api/auth/me HTTP/1.1" 200 -
+127.0.0.1 - - [12/Sep/2026 14:32:01] "OPTIONS /api/skin/config HTTP/1.1" 200 -
+127.0.0.1 - - [12/Sep/2026 14:32:01] "GET /api/skin/config HTTP/1.1" 200 -
+127.0.0.1 - - [12/Sep/2026 14:32:33] "OPTIONS /api/skin/config HTTP/1.1" 200 -
+127.0.0.1 - - [12/Sep/2026 14:32:33] "GET /api/skin/config HTTP/1.1" 200 -
